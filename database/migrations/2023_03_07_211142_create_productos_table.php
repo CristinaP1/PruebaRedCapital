@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->primary("sku");
+            $table->string("sku")->primary();
             $table->string("nombre");
             $table->double("precio_unitario");
             $table->timestamps();

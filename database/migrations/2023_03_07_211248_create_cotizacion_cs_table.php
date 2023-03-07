@@ -19,6 +19,9 @@ return new class extends Migration
             $table->double("total_bruto");
             $table->timestamp("fecha_registro");
             $table->timestamps();
+
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('users')->ondelete('cascade');
         });
     }
 

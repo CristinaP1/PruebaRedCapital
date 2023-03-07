@@ -19,6 +19,12 @@ return new class extends Migration
             $table->double("precio_unitario");
             $table->timestamp("fecha_registro");
             $table->timestamps();
+
+            $table->unsignedBigInteger('cotizacion_id');
+            $table->foreign('cotizacion_id')->references('id')->on('cotizacion_cs')->ondelete('cascade');
+
+            $table->string('producto_sku')->nullable();
+            $table->foreign('producto_sku')->references('sku')->on('productos')->ondelete('cascade');
         });
     }
 
