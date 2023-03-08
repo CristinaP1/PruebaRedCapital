@@ -9,6 +9,8 @@ class Producto extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'sku';
+
     //Relacion uno es a muchos
     public function cotizaciones_d()
     {
