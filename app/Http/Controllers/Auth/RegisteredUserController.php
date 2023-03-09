@@ -36,6 +36,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'apellido' => ['required', 'string', 'max:255'],
             'edad' => ['required'],
+            'admin' => ['required'],
         ]);
 
         $user = User::create([
@@ -44,13 +45,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'apellido' => $request->apellido,
             'edad' => $request->edad,
-            'admin' => 1,
+            'admin' => $request->admin,
         ]);
 
         event(new Registered($user));
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('usuarios.index');
     }
 }
