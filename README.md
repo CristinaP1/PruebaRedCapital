@@ -4,24 +4,22 @@
   
   - Para la configuración de la base de datos agregar el nombre de la base de datos y las credenciales en el caso de ser necesario, ejm:
   
-        ![image](https://user-images.githubusercontent.com/123708866/224116776-6749bf6d-5fb8-41ba-8d24-c90fc7a0c6b8.png)
+        `DB_CONNECTION=mysql`
+        `DB_HOST=127.0.0.1`
+        `DB_PORT=3306`
+        `DB_DATABASE=redCapital`
+        `DB_USERNAME=root`
+        `DB_PASSWORD=`
   
   - Para la configuración del email se utilizó el servidor de email Mailtrap, donde se deberan generar un cuenta y obtener los datos para ingresar en el archivo .env. Por ejemplo:
 
         `MAIL_MAILER=smtp`
-
         `MAIL_HOST=sandbox.smtp.mailtrap.io`
-
         `MAIL_PORT=2525`
-
         `MAIL_USERNAME=0f94d17a578022`
-
         `MAIL_PASSWORD=447017d8fcc67b`
-
         `MAIL_ENCRYPTION=tls`
-
         `MAIL_FROM_ADDRESS="admin@gmail.com"`
-
         `MAIL_FROM_NAME="${APP_NAME}"`
   
   En la mensajeria de Mailtrap se podrán ver los correos de restablecer contraseña y la del registro de usuario menor a 18 años
