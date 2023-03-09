@@ -23,7 +23,7 @@
   
   Para que el sistema funcione se debe realizar en una terminal el comando `php artisan serve` y en otra terminar `npm run dev`
 
-# Requerimientos
+# Requerimientos Realizados
 
 - Generales
 - [x] Ingreso de usuario por correo y contraseña
@@ -34,8 +34,6 @@
 - CRUD
 - [x] Ver y crear cotización
 - [x] Registrar, ver, editar y eliminar usuarios. También se realizó la notificación si se registra un usuario menores a 18 años
-- [ ] Reporte en Excel
-- [ ] No se realizaron los mensajes de validación
 
 
 Para el reporte en Excel cabe mencionar que no lo pude terminar a tiempo, ya que tuve un problema con las extensiones de php, encontrando la solución muy tarde.
