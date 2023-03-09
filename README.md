@@ -10,7 +10,7 @@
 
 ![image](https://user-images.githubusercontent.com/123708866/224116890-64fbc6a4-7ba8-439a-a095-547f3a3cad2f.png)
   
-  En la mensajeria de Mailtrap se podran ver los correos de restablecer contraseña y la del registro de usuario menor a 18
+  En la mensajeria de Mailtrap se podrán ver los correos de restablecer contraseña y la del registro de usuario menor a 18 años
   
   Luego en para generar la key en el archivo .env se debe realizar lo siquiente:
   - Generar la key en el archivo .env con el comando `php artisan key:generate`
@@ -21,7 +21,7 @@
   - Correr los seeders con `php artisan db:seed`
   - Para limpiar hacer el comando `php artisan optimize:clear`
   
-  Para que el sistema funcione se debe realizar en una terminal el comando php artisan serve y en otra terminar npm run dev
+  Para que el sistema funcione se debe realizar en una terminal el comando `php artisan serve` y en otra terminar `npm run dev`
 
 # Requerimientos
 
@@ -33,7 +33,7 @@
 
 - CRUD
 - [x] Ver y crear cotización
-- [x] Registrar, ver, editar y eliminar usuarios. También se realizó la notificación si se registra un usuario menos a 18
+- [x] Registrar, ver, editar y eliminar usuarios. También se realizó la notificación si se registra un usuario menores a 18 años
 - [ ] Reporte en Excel
 - [ ] No se realizaron los mensajes de validación
 
