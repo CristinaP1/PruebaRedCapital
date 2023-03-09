@@ -36,3 +36,6 @@
 - [x] Registrar, ver, editar y eliminar usuarios. También se realizó la notificación si se registra un usuario menos a 18
 - [ ] Reporte en Excel
 - [ ] No se realizaron los mensajes de validación
+
+
+Para el reporte en Excel cabe mencionar que no lo pude terminar a tiempo, ya que tuve un problema con las extensiones de php, encontrando la solución muy tarde.
