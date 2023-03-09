@@ -49,28 +49,41 @@ class CotizacionCController extends Controller
     {
         $arreglo = $request['arreglo'];
 
-        //Se crea nueva cotizacion
-        $cotizacion = new Cotizacion_c();
-        $cotizacion->fecha_emision = $request['fechaEmision'];
-        $cotizacion->total_bruto = $request['totalBruto'];
-        $cotizacion->fecha_registro = date("Y-m-d");
-        $cotizacion->usuario_id = auth()->id();
-        /* Se guarda la cotizacion */
-        $cotizacion->save();
+        /* Se valida los datos del la cotizacion */
+        $validated = $request->validate([
+            'femision' => 'required',
+            'cantidad' => 'numeric',
+        ]);
 
-        //Se crea nuevo detalle de cotizacion
-        foreach ($arreglo as $key => $value) {
-            $detalle = new Cotizacion_d();
-            $detalle->cantidad = $value['selectedCantidad'];
-            $detalle->precio_unitario = $value['selectedPU'];
-            $detalle->fecha_registro = date("Y-m-d");
-            $detalle->cotizacion_id = $cotizacion->id;
-            $detalle->producto_sku = $request['sku'];
 
-            $detalle->save();
+        try {
+            //Se crea nueva cotizacion
+            $cotizacion = new Cotizacion_c();
+            $cotizacion->fecha_emision = $request['fechaEmision'];
+            $cotizacion->total_bruto = $request['totalBruto'];
+            $cotizacion->fecha_registro = date("Y-m-d");
+            $cotizacion->usuario_id = auth()->id();
+            /* Se guarda la cotizacion */
+            $cotizacion->save();
+
+            //Se crea nuevo detalle de cotizacion
+            foreach ($arreglo as $key => $value) {
+                $detalle = new Cotizacion_d();
+                $detalle->cantidad = $value['selectedCantidad'];
+                $detalle->precio_unitario = $value['selectedPU'];
+                $detalle->fecha_registro = date("Y-m-d");
+                $detalle->cotizacion_id = $cotizacion->id;
+                $detalle->producto_sku = $request['sku'];
+
+                $detalle->save();
+            }
+        } catch (\Throwable $th) {
+            /* Si ocurre un error al ingresar una cotizacion arroja un mensaje de error */
+            Log::info('Error en store de contralador de cotizacion');
+            Log::error($th);
+            return redirect()->route('cotizaciones.index')->with('success', 'La cotización ha sido creada exitosamente');
         }
-
-        return redirect()->route('cotizaciones.index');
+        return redirect()->route('cotizaciones.index')->with('success', 'La cotización ha sido creada exitosamente');
     }
 
     /**
