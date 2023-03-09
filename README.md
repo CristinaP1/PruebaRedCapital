@@ -8,7 +8,7 @@
   
   - Para la configuración del email se utilizó el servidor de email Mailtrap, donde se deberan generar un cuenta y obtener los datos para ingresar en el archivo .env. Por ejemplo:
 
-    `MAIL_MAILER=smtp`
+        `MAIL_MAILER=smtp`
 
         `MAIL_HOST=sandbox.smtp.mailtrap.io`
 
