@@ -17,14 +17,38 @@ class ProductoSeeder extends Seeder
     {
         DB::table('productos')->insert([
             'sku' => "prod1",
-            'nombre' => "Ropa",
+            'nombre' => "Producto 1",
             'precio_unitario' => 2000,
         ]);
 
         DB::table('productos')->insert([
             'sku' => "prod2",
-            'nombre' => "Comida",
+            'nombre' => "Producto 2",
             'precio_unitario' => 5000,
+        ]);
+
+        DB::table('productos')->insert([
+            'sku' => "prod3",
+            'nombre' => "Producto 3",
+            'precio_unitario' => 12000,
+        ]);
+
+        DB::table('productos')->insert([
+            'sku' => "prod4",
+            'nombre' => "Producto 4",
+            'precio_unitario' => 10000,
+        ]);
+
+        DB::table('productos')->insert([
+            'sku' => "prod5",
+            'nombre' => "Producto 5",
+            'precio_unitario' => 3000,
+        ]);
+
+        DB::table('productos')->insert([
+            'sku' => "prod6",
+            'nombre' => "Producto 61",
+            'precio_unitario' => 7000,
         ]);
     }
 }
