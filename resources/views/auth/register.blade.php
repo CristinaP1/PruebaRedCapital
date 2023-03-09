@@ -56,12 +56,13 @@
             </div>
             <div class="m-5 grid grid-cols-3 gap-6">
                 <div>
-                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rol</label>
-                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <label for="admin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rol</label>
+                    <select id="admin" name="admin" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected>Seleccione rol</option>
                         <option value="1">Administrador</option>
                         <option value="0">Usuario</option>
                     </select>
+                    <x-input-error :messages="$errors->get('admin')" class="mt-2" />
                 </div>
             </div>
             <div class="mb-5">
