@@ -18,6 +18,6 @@ class Cotizacion_c extends Model
     //Relacion uno es a muchos
     public function cotizaciones_d()
     {
-        return $this->hasMany(Cotizacion_d::class);
+        return $this->hasMany(Cotizacion_d::class, 'cotizacion_id');
     }
 }

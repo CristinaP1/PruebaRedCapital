@@ -27,34 +27,35 @@
                         <th scope="col" class="px-6 py-3">
                             Nombre usuario creador
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Acción
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($cotizaciones as $cotizacion)
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
-                        </th>
                         <td class="px-6 py-4">
-                            Silver
+                            {{$cotizacion->id}}
                         </td>
                         <td class="px-6 py-4">
-                            Laptop
+                            {{$cotizacion->fecha_emision}}
                         </td>
                         <td class="px-6 py-4">
-                            $2999
+                            {{$cotizacion->total_bruto}}
                         </td>
                         <td class="px-6 py-4">
-                            $1999
+                            {{$cotizacion->cotizaciones_d->sum('cantidad')}}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            {{$cotizacion->usuario->name}}
+                            {{$cotizacion->usuario->apellido}} 
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
+            <!-- Paginacion de cotizaciones -->
+            <div class="m-5 paginator">
+                {{ $cotizaciones->links() }}
+            </div>
         </div>
     </div>
 </x-app-layout>
