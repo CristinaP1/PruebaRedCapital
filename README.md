@@ -1,66 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Pasos para ejecutar el sistema
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  Al clonas el repositorio se debe modificar el nombre del archivo .env.example a .env
+  
+  - Para la configuración de la base de datos agregar el nombre de la base de datos y las credenciales en el caso de ser necesario, ejm:
+  
+![image](https://user-images.githubusercontent.com/123708866/224116776-6749bf6d-5fb8-41ba-8d24-c90fc7a0c6b8.png)
+  
+  - Para la configuración del email se utilizó el servidor de email Mailtrap, donde se deberan generar un cuenta y obtener los datos para ingresar en el archivo .env. Por ejemplo:
 
-## About Laravel
+![image](https://user-images.githubusercontent.com/123708866/224116890-64fbc6a4-7ba8-439a-a095-547f3a3cad2f.png)
+  
+  En la mensajeria de Mailtrap se podran ver los correos de restablecer contraseña y la del registro de usuario menor a 18
+  
+  Luego en para generar la key en el archivo .env se debe realizar lo siquiente:
+  - Generar la key en el archivo .env con el comando `php artisan key:generate`
+   
+   Luego para los sigueintes comandos: 
+  - Realizar los comando `composer install` y `npm install`
+  - Correr las miggraciones con `php artisan migrate`
+  - Correr los seeders con `php artisan db:seed`
+  - Para limpiar hacer el comando `php artisan optimize:clear`
+  
+  Para que el sistema funcione se debe realizar en una terminal el comando php artisan serve y en otra terminar npm run dev
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Requerimientos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Generales
+- [x] Ingreso de usuario por correo y contraseña
+- [x] Olvidar contraseña, este llena por correo al usuario para que puede restablecer su contraseña
+- [x] Home con el nombre del usuairo al ingresar
+- [x] Sección de perfil del usuario, para que el usuario pueda cambiar su nombre, contraseña y correo
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- CRUD
+- [x] Ver y crear cotización
+- [x] Registrar, ver, editar y eliminar usuarios. También se realizó la notificación si se registra un usuario menos a 18
+- [ ] Reporte en Excel
+- [ ] No se realizaron los mensajes de validación
