@@ -10,6 +10,8 @@ class Producto extends Model
     use HasFactory;
 
     protected $primaryKey = 'sku';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     //Relacion uno es a muchos
     public function cotizaciones_d()
