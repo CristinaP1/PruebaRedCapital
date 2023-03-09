@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Notifications\Email;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -50,11 +51,9 @@ class UserController extends Controller
     {
         //Se validan los datos del usuario a actualizar
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            'apellido' => ['required', 'string', 'max:255'],
-            'edad' => ['required'],
-            'admin' => ['required'],
+            'name' => ['string', 'max:255'],
+            'email' => ['string', 'email', 'max:255'],
+            'apellido' => ['string', 'max:255'],
         ]);
 
         try {
@@ -67,6 +66,7 @@ class UserController extends Controller
             $usuario->admin = $request->rol;
 
             $usuario->save();
+
         } catch (\Throwable $th) {
             /* Si hay un error al actualizar un usuario se arrojara un mensaje de error */
             Log::info('Error en update de contralador de usuario');
