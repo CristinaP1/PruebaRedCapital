@@ -77,10 +77,6 @@
                     Cantidad
                 </label>
                 <input type="number" id="cantidad" name="cantidad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <!-- Validacion de la cantidad -->
-                @error('cantidad')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
             </div>
             <!-- Boton para agregar un producto a la lista -->
             <div class="self-end">
@@ -133,9 +129,7 @@
 <script>
     /* Declaracion de variables */
     var select = document.getElementById('producto');
-    var sites = ({
-        !!json_encode($productos - > toArray()) !!
-    });
+    var sites = {!! json_encode($productos->toArray(), JSON_HEX_TAG) !!};
     var numeroCotizacion = JSON.parse("{{ json_encode($numeroCotizacion) }}");
     var arreglo = [];
     var totalBruto = 0;
@@ -223,15 +217,14 @@
             data: {
                 arreglo: arreglo,
                 totalBruto: totalBruto,
-                fechaEmision: fechaEmision
+                fechaEmision: fechaEmision,
             },
             success: function(response) {
-                console.log("Success")
+                window.location.href = "{{ route('cotizaciones.index') }}";
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus)
-                console.log(jqXHR)
-                console.log(errorThrown)
+                window.location.href = "{{ route('cotizaciones.index') }}";
+                alert('Ocurrio un error al ingresar una cotizacion');
                 // aquí puedes manejar el error de la petición Ajax
             }
         });
