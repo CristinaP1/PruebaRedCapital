@@ -34,8 +34,12 @@ class CotizacionCController extends Controller
         /* Se obtienen todas los productos para mostrarlos en el selector de producto */
         $productos = Producto::all();
         $fechaActual = date("Y-m-d");
-        $numeroCotizacion = Cotizacion_c::select('id')->orderBy('id', 'desc')->first()->value('id');
-        $numeroCotizacion = $numeroCotizacion + 1;
+        $numeroCotizacion = Cotizacion_c::select('id')->orderBy('id', 'desc')->first();
+        if($numeroCotizacion == null){
+            $numeroCotizacion = 1; 
+        }else{
+            $numeroCotizacion = $numeroCotizacion->id + 1;
+        }
         return view('cotizacion.create', compact('productos', 'numeroCotizacion', 'fechaActual'));
     }
 
@@ -49,12 +53,9 @@ class CotizacionCController extends Controller
     {
         $arreglo = $request['arreglo'];
 
-        /* Se valida los datos del la cotizacion */
         $validated = $request->validate([
-            'femision' => 'required',
-            'cantidad' => 'numeric',
+            'fechaEmision' => 'required',
         ]);
-
 
         try {
             //Se crea nueva cotizacion
